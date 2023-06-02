@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="core" target="17" />
+      <module name="multi_module.core.hexagonal-presentation.main" target="17" />
+      <module name="multi_module.core.hexagonal-presentation.test" target="17" />
+      <module name="multi_module.core.main" target="17" />
+      <module name="multi_module.core.test" target="17" />
+      <module name="multi_module.infrastructure.main" target="17" />
+      <module name="multi_module.infrastructure.test" target="17" />
+      <module name="multi_module.persistence.main" target="17" />
+      <module name="multi_module.persistence.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
