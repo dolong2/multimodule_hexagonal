@@ -8,14 +8,10 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/core" />
-            <option value="$PROJECT_DIR$/core/hexagonal-presentation" />
             <option value="$PROJECT_DIR$/hexagonal-core" />
             <option value="$PROJECT_DIR$/hexagonal-infrastructure" />
             <option value="$PROJECT_DIR$/hexagonal-persistence" />
             <option value="$PROJECT_DIR$/hexagonal-presentation" />
-            <option value="$PROJECT_DIR$/infrastructure" />
-            <option value="$PROJECT_DIR$/persistence" />
           </set>
         </option>
       </GradleProjectSettings>

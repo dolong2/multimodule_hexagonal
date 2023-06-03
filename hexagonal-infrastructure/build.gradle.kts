@@ -1,19 +1,21 @@
 plugins {
-    id("java")
+    id("org.springframework.boot") version "3.0.6"
+    id("io.spring.dependency-management") version "1.1.0"
+    kotlin("plugin.spring") version "1.7.22" apply false
+    kotlin("plugin.jpa") version "1.7.22" apply false
 }
-
-group = "org.example"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    // impl project
+    implementation(project(":hexagonal-persistence"))
+    implementation(project(":hexagonal-core"))
+    implementation(project(":hexagonal-presentation"))
 }
 
-tasks.getByName<Test>("test") {
-    useJUnitPlatform()
+tasks.getByName<Jar>("jar") {
+    enabled = false
 }
