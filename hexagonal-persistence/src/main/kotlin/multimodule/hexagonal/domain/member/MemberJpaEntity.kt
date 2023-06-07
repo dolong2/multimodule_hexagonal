@@ -4,6 +4,7 @@ import jakarta.persistence.*
 import multimodule.hexagonal.domain.auth.model.Role
 import java.util.*
 
+@Entity
 class MemberJpaEntity(
     @Id
     val id: String = UUID.randomUUID().toString(),
@@ -14,5 +15,4 @@ class MemberJpaEntity(
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "Role", joinColumns = [JoinColumn(name = "user_id")])
     val roles: MutableList<Role> = mutableListOf()
-) {
-}
+)
