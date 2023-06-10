@@ -9,6 +9,14 @@ repositories {
 }
 
 dependencies {
+    //security
+    implementation(Dependencies.SPRING_SECURITY)
+
+    // jwt
+    implementation(Dependencies.JWT_API)
+    implementation(Dependencies.JWT_IMPL)
+    implementation(Dependencies.JWT_JACKSON)
+
     // impl project
     implementation(project(":hexagonal-persistence"))
     implementation(project(":hexagonal-core"))
