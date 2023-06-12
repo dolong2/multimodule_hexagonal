@@ -4,5 +4,5 @@ import java.util.*
 
 data class RefreshToken(
     val token: String,
-    val userId: UUID
+    val userId: String
 )

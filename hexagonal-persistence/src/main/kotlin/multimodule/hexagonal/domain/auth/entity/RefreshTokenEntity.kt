@@ -11,5 +11,5 @@ data class RefreshTokenEntity(
     @Indexed
     val token: String,
     @Indexed
-    val userId: UUID
+    val userId: String
 )
