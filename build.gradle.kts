@@ -28,8 +28,8 @@ subprojects {
         implementation(Dependencies.KOTLIN_JDK)
         implementation(Dependencies.JACKSON)
 
-        //servlet
-        implementation(Dependencies.JAVA_SERVLET)
+        //tomcat
+        implementation(Dependencies.TOMCAT)
 
         // test
         implementation(Dependencies.SPRING_STARTER_TEST)

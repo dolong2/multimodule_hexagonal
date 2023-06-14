@@ -3,8 +3,8 @@ object Dependencies {
     const val KOTLIN_REFLET = "org.jetbrains.kotlin:kotlin-reflect"
     const val KOTLIN_JDK = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
-    //servlet
-    const val JAVA_SERVLET = "javax.servlet:javax.servlet-api:${DependencyVersion.SERVLET_VERSION}"
+    //tomcat
+    const val TOMCAT = "org.apache.tomcat.embed:tomcat-embed-core:${DependencyVersion.TOMCAT_VERSION}"
 
     // spring
     const val SPRING_JPA = "org.springframework.boot:spring-boot-starter-data-jpa"
