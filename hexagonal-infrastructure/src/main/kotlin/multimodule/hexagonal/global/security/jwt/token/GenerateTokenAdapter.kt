@@ -38,7 +38,7 @@ class GenerateTokenAdapter(
         Jwts.builder()
             .signWith(SignatureAlgorithm.HS512, jwtProperty.secret)
             .setHeaderParam(Header.JWT_TYPE, JwtPrefix.ACCESS)
-            .setId(userId.toString())
+            .setId(userId)
             .claim(JwtPrefix.ROLE, role.name)
             .setIssuedAt(Date())
             .setExpiration(Date(System.currentTimeMillis() + tokenTimeProperty.accessTime * 1000))

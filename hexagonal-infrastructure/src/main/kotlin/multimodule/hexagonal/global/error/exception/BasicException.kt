@@ -2,6 +2,6 @@ package multimodule.hexagonal.global.error.exception
 
 import multimodule.hexagonal.global.error.ErrorCode
 
-class BasicException(
+open class BasicException(
     val errorCode: ErrorCode
 ) : RuntimeException()
