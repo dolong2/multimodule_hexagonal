@@ -4,6 +4,8 @@ import io.jsonwebtoken.*
 import multimodule.hexagonal.domain.auth.model.Role
 import multimodule.hexagonal.global.security.auth.AdminDetailsService
 import multimodule.hexagonal.global.security.auth.MemberDetailsService
+import multimodule.hexagonal.global.security.exception.ExpiredTokenException
+import multimodule.hexagonal.global.security.exception.TokenNotValidException
 import multimodule.hexagonal.global.security.jwt.properties.JwtProperty
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -48,9 +50,9 @@ class ParseTokenAdapter(
                 parseClaimsJws(token)
         } catch (e: Exception) {
             when(e) {
-                is InvalidClaimException -> throw RuntimeException()
-                is ExpiredJwtException -> throw RuntimeException()
-                is JwtException -> throw RuntimeException()
+                is InvalidClaimException -> throw TokenNotValidException()
+                is ExpiredJwtException -> throw ExpiredTokenException()
+                is JwtException -> throw TokenNotValidException()
                 else -> throw RuntimeException()
             }
         }
