@@ -1,6 +1,8 @@
-package multimodule.hexagonal.global.filter
+package multimodule.hexagonal.global.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import multimodule.hexagonal.global.filter.ExceptionFilter
+import multimodule.hexagonal.global.filter.JwtReqFilter
 import multimodule.hexagonal.global.security.jwt.token.ParseTokenAdapter
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
