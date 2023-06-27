@@ -31,13 +31,14 @@ class SecurityConfig(
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
         http
-            .authorizeRequests()
-            .requestMatchers(RequestMatcher { request ->
-                CorsUtils.isPreFlightRequest(request)
-            }).permitAll()
+            .authorizeHttpRequests {
+                it.requestMatchers(RequestMatcher { request ->
+                    CorsUtils.isPreFlightRequest(request)
+                }).permitAll()
 
-            // auth
-            .anyRequest().denyAll()
+                //when url not set
+                .anyRequest().denyAll()
+            }
 
         http
             .apply(FilterConfig(objectMapper, parseTokenAdapter))
