@@ -23,4 +23,7 @@ class MemberPersistenceAdapter(
 
     override fun existsMemberId(id: String): Boolean =
         memberRepository.existsById(id)
+
+    override fun existsMemberEmail(email: String): Boolean =
+        memberRepository.existsByEmail(email)
 }

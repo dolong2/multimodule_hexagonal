@@ -10,4 +10,7 @@ class SecurityServiceImpl(
 ) : SecurityService {
     override fun getUserId(): String =
         securityPort.getCurrentUserId()
+
+    override fun encodePassword(rawPassword: String): String =
+        securityPort.encodeRawPassword(rawPassword)
 }

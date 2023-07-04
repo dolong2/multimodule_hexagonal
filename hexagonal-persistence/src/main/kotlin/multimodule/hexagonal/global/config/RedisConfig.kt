@@ -1,12 +1,17 @@
 package multimodule.hexagonal.global.config
 
 import org.springframework.beans.factory.annotation.Value
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.data.redis.connection.RedisConnectionFactory
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
+import org.springframework.data.redis.core.RedisTemplate
+import org.springframework.data.redis.core.ZSetOperations
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer
+import org.springframework.data.redis.serializer.RedisSerializer
 import java.time.Duration
 
 @Configuration
@@ -19,13 +24,7 @@ open class RedisConfig(
 ) {
 
     @Bean
-    open fun redisConnectionFactory(): RedisConnectionFactory {
-        val redisConfig = RedisStandaloneConfiguration(redisHost, redisPort)
-        val clientConfig = LettuceClientConfiguration.builder()
-            .commandTimeout(Duration.ofSeconds(1))
-            .shutdownTimeout(Duration.ZERO)
-            .build()
-
-        return LettuceConnectionFactory(redisConfig, clientConfig)
-    }
+    @ConditionalOnMissingBean(RedisConnectionFactory::class)
+    open fun redisConnectionFactory(): RedisConnectionFactory =
+        LettuceConnectionFactory(redisHost, redisPort)
 }

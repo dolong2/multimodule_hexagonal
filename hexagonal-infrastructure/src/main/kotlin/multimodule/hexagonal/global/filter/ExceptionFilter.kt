@@ -7,8 +7,6 @@ import jakarta.servlet.http.HttpServletResponse
 import multimodule.hexagonal.global.error.ErrorCode
 import multimodule.hexagonal.global.error.exception.BasicException
 import multimodule.hexagonal.global.error.response.ErrorResponse
-import multimodule.hexagonal.global.security.exception.ExpiredTokenException
-import multimodule.hexagonal.global.security.exception.TokenNotValidException
 import org.springframework.web.filter.OncePerRequestFilter
 
 class ExceptionFilter(

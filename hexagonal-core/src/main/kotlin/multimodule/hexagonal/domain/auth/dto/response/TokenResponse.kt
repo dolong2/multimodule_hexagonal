@@ -1,6 +1,5 @@
 package multimodule.hexagonal.domain.auth.dto.response
 
-import com.fasterxml.jackson.annotation.JsonFormat
 import java.time.LocalDateTime
 
 data class TokenResponse(
