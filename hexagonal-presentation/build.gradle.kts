@@ -12,4 +12,6 @@ repositories {
 }
 
 dependencies {
+    implementation(Dependencies.SPRING_WEB)
+    implementation(project(":hexagonal-core"))
 }
