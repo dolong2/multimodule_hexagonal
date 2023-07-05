@@ -14,4 +14,7 @@ class SecurityAdapter(
 
     override fun encodeRawPassword(rawPassword: String): String =
         passwordEncoder.encode(rawPassword)
+
+    override fun isCorrectPassword(rawPassword: String, encodedPassword: String): Boolean =
+        passwordEncoder.matches(rawPassword, encodedPassword)
 }

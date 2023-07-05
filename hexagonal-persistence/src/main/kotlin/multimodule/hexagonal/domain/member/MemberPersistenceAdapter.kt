@@ -24,6 +24,11 @@ class MemberPersistenceAdapter(
     override fun existsMemberId(id: String): Boolean =
         memberRepository.existsById(id)
 
-    override fun existsMemberEmail(email: String): Boolean =
+    override fun existsMemberByEmail(email: String): Boolean =
         memberRepository.existsByEmail(email)
+    override fun findMemberByEmail(email: String): Member? {
+        val entity = (memberRepository.findByEmail(email)
+            ?: return null)
+        return entity.toDomain()
+    }
 }

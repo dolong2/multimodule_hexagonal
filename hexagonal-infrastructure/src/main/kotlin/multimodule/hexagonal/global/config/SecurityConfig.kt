@@ -39,6 +39,7 @@ class SecurityConfig(
                     CorsUtils.isPreFlightRequest(request)
                 }).permitAll()
 
+                .requestMatchers(HttpMethod.POST, "/auth/signup").permitAll()
                 .requestMatchers(HttpMethod.POST, "/auth").permitAll()
 
                 //when url not set

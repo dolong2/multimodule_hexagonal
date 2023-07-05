@@ -13,4 +13,9 @@ class SecurityServiceImpl(
 
     override fun encodePassword(rawPassword: String): String =
         securityPort.encodeRawPassword(rawPassword)
+
+    override fun matchPassword(rawPassword: String, encodedPassword: String) {
+        if (!securityPort.isCorrectPassword(rawPassword, encodedPassword))
+            throw RuntimeException()// TODO 패스워드가 올바르지 않음
+    }
 }

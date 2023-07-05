@@ -5,5 +5,6 @@ import multimodule.hexagonal.domain.member.model.Member
 interface QueryMemberPort {
     fun findByMemberId(id: String): Member?
     fun existsMemberId(id: String): Boolean
-    fun existsMemberEmail(email: String): Boolean
+    fun existsMemberByEmail(email: String): Boolean
+    fun findMemberByEmail(email: String): Member?
 }

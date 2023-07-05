@@ -1,13 +1,10 @@
-package multimodule.hexagonal.domain.auth.dto.response
+package multimodule.hexagonal.domain.auth.data.response
 
 import java.time.LocalDateTime
 
-data class TokenResponse(
+class SignInResponse(
     val accessToken: String,
-
     val accessTokenExp: LocalDateTime,
-
     val refreshToken: String,
-
     val refreshTokenExp: LocalDateTime
 )
