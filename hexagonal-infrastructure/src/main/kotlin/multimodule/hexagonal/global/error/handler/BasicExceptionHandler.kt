@@ -1,7 +1,7 @@
 package multimodule.hexagonal.global.error.handler
 
 import jakarta.servlet.http.HttpServletRequest
-import multimodule.hexagonal.global.error.exception.BasicException
+import multimodule.hexagonal.common.error.BasicException
 import multimodule.hexagonal.global.error.response.ErrorResponse
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

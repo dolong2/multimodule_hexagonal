@@ -1,6 +1,6 @@
 package multimodule.hexagonal.global.error.response
 
-import multimodule.hexagonal.global.error.ErrorCode
+import multimodule.hexagonal.common.error.ErrorCode
 
 class ErrorResponse(
     val status: Int,

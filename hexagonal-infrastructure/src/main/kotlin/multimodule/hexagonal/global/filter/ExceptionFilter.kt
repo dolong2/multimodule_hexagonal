@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
-import multimodule.hexagonal.global.error.ErrorCode
-import multimodule.hexagonal.global.error.exception.BasicException
+import multimodule.hexagonal.common.error.ErrorCode
+import multimodule.hexagonal.common.error.BasicException
 import multimodule.hexagonal.global.error.response.ErrorResponse
 import org.springframework.web.filter.OncePerRequestFilter
 

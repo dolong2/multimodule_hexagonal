@@ -4,6 +4,7 @@ import multimodule.hexagonal.common.annotation.UseCase
 import multimodule.hexagonal.common.service.SecurityService
 import multimodule.hexagonal.domain.auth.dto.request.SignUpData
 import multimodule.hexagonal.domain.auth.dto.util.toMember
+import multimodule.hexagonal.domain.auth.exception.SameUserExistsException
 import multimodule.hexagonal.domain.member.spi.CommandMemberPort
 import multimodule.hexagonal.domain.member.spi.QueryMemberPort
 
@@ -15,7 +16,7 @@ class SignupUseCase(
 ) {
     fun execute(signUpData: SignUpData) {
         if (queryMemberPort.existsMemberByEmail(signUpData.email))
-            throw RuntimeException() //TODO 이미 존재하는 유저
+            throw SameUserExistsException()
         val encodedPassword = securityService.encodePassword(signUpData.password)
         commandMemberPort.save(signUpData.toMember(encodedPassword))
     }
