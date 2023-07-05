@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 class AuthWebAdapter(
     private val signupUseCase: SignupUseCase
 ) {
-    @PostMapping
+    @PostMapping("/signup")
     fun signup(@RequestBody signupRequest: SignupRequest): ResponseEntity<Void> =
         signupUseCase.execute(signupRequest.toData())
             .let { ResponseEntity.ok().build() }

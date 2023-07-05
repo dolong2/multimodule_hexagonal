@@ -14,7 +14,7 @@ class SignupUseCase(
     private val securityService: SecurityService
 ) {
     fun execute(signUpData: SignUpData) {
-        if (queryMemberPort.existsMemberEmail(signUpData.email))
+        if (queryMemberPort.existsMemberByEmail(signUpData.email))
             throw RuntimeException() //TODO 이미 존재하는 유저
         val encodedPassword = securityService.encodePassword(signUpData.password)
         commandMemberPort.save(signUpData.toMember(encodedPassword))
