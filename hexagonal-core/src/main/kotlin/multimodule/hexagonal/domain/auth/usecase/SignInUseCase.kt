@@ -17,7 +17,6 @@ class SignInUseCase(
         val member = queryMemberPort.findMemberByEmail(signInData.email)
             ?: throw RuntimeException()// TODO 해당 유저가 존재하지 않음
         securityService.matchPassword(signInData.password, member.password)
-        val tokenResponse = jwtPort.generateToken(member.id, member.roles[0])
-        return tokenResponse
+        return jwtPort.generateToken(member.id, member.roles[0])
     }
 }
