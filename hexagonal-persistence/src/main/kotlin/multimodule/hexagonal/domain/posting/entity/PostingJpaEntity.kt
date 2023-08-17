@@ -1,15 +1,13 @@
 package multimodule.hexagonal.domain.posting.entity
 
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.Id
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
+import jakarta.persistence.*
 import multimodule.hexagonal.domain.member.entity.MemberJpaEntity
 
+@Entity
 class PostingJpaEntity(
     @Id
-    @GeneratedValue
-    val id: Long,
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    val id: Long = 0,
     val title: String,
     val content: String,
     val likes: Long,
