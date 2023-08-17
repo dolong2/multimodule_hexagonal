@@ -2,6 +2,7 @@ package multimodule.hexagonal.global.error.handler
 
 import jakarta.servlet.http.HttpServletRequest
 import multimodule.hexagonal.common.error.BasicException
+import multimodule.hexagonal.common.error.ErrorCode
 import multimodule.hexagonal.global.error.response.ErrorResponse
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -17,5 +18,13 @@ class BasicExceptionHandler {
         log.error(request.requestURI)
         log.error(ex.errorCode.message)
         return ErrorResponse(ex.errorCode)
+    }
+
+    @ExceptionHandler(Exception::class)
+    fun handleBasicException(request: HttpServletRequest, ex: Exception): ErrorResponse {
+        log.error(request.method)
+        log.error(request.requestURI)
+        ex.printStackTrace()
+        return ErrorResponse(ErrorCode.INTERNAL_ERROR)
     }
 }
