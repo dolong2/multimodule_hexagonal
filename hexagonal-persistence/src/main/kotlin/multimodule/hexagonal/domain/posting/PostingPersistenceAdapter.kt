@@ -16,6 +16,10 @@ class PostingPersistenceAdapter(
         postingRepository.save(posting.toEntity())
             .toDomain()
 
+    override fun delete(posting: Posting) {
+        postingRepository.delete(posting.toEntity())
+    }
+
     override fun findByPostingId(id: Long): Posting? =
         postingRepository.findByIdOrNull(id)
             ?.toDomain()

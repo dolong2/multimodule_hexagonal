@@ -4,4 +4,5 @@ import multimodule.hexagonal.domain.posting.model.Posting
 
 interface CommandPostingPort {
     fun save(posting: Posting): Posting
+    fun delete(posting: Posting)
 }
