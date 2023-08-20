@@ -2,6 +2,7 @@ package multimodule.hexagonal.domain.auth.data.extension
 
 import multimodule.hexagonal.domain.auth.data.request.SignInRequest
 import multimodule.hexagonal.domain.auth.data.request.SignupRequest
+import multimodule.hexagonal.domain.auth.data.response.ReissueTokenResponse
 import multimodule.hexagonal.domain.auth.data.response.SignInResponse
 import multimodule.hexagonal.domain.auth.dto.request.SignInData
 import multimodule.hexagonal.domain.auth.dto.request.SignUpData
@@ -22,6 +23,14 @@ fun SignInRequest.toData(): SignInData =
 
 fun TokenResponseData.toResponse(): SignInResponse =
     SignInResponse(
+        accessToken = this.accessToken,
+        accessTokenExp = this.accessTokenExp,
+        refreshToken = this.refreshToken,
+        refreshTokenExp = this.refreshTokenExp
+    )
+
+fun TokenResponseData.toReissueResponse(): ReissueTokenResponse =
+    ReissueTokenResponse(
         accessToken = this.accessToken,
         accessTokenExp = this.accessTokenExp,
         refreshToken = this.refreshToken,
