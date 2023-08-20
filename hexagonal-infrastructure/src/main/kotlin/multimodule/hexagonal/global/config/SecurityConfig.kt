@@ -47,6 +47,7 @@ class SecurityConfig(
 
                 //postings
                 .requestMatchers(HttpMethod.POST, "/postings").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/postings/{id}").authenticated()
 
                 //when url not set
                 .anyRequest().denyAll()
