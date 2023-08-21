@@ -5,9 +5,11 @@ import multimodule.hexagonal.domain.posting.data.extension.toResponse
 import multimodule.hexagonal.domain.posting.data.request.CreatePostingRequest
 import multimodule.hexagonal.domain.posting.data.request.GetAllPostingRequest
 import multimodule.hexagonal.domain.posting.data.response.PostingListResponse
+import multimodule.hexagonal.domain.posting.data.response.PostingResponse
 import multimodule.hexagonal.domain.posting.usecase.CreatePostingUseCase
 import multimodule.hexagonal.domain.posting.usecase.DeletePostingUseCase
 import multimodule.hexagonal.domain.posting.usecase.GetAllPostingUseCase
+import multimodule.hexagonal.domain.posting.usecase.GetOnePostingUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.*
 class PostingWebAdapter(
     private val createPostingUseCase: CreatePostingUseCase,
     private val deletePostingUseCase: DeletePostingUseCase,
-    private val getAllPostingUseCase: GetAllPostingUseCase
+    private val getAllPostingUseCase: GetAllPostingUseCase,
+    private val getOnePostingUseCase: GetOnePostingUseCase
 ) {
     @PostMapping
     fun createPosting(@RequestBody postingRequest: CreatePostingRequest): ResponseEntity<Void> =
@@ -33,4 +36,10 @@ class PostingWebAdapter(
     fun getAllPosting(request: GetAllPostingRequest): ResponseEntity<PostingListResponse> =
         getAllPostingUseCase.execute(request.page, request.size)
             .let { ResponseEntity.ok(it.toResponse()) }
+
+    @GetMapping("/{id}")
+    fun getOnePosting(@PathVariable id: Long): ResponseEntity<PostingResponse> =
+        getOnePostingUseCase.execute(id)
+            .run { ResponseEntity.ok(this.toResponse()) }
+
 }
