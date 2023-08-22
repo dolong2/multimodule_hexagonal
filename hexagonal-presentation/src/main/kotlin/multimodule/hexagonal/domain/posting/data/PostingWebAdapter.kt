@@ -4,12 +4,10 @@ import multimodule.hexagonal.domain.posting.data.extension.toData
 import multimodule.hexagonal.domain.posting.data.extension.toResponse
 import multimodule.hexagonal.domain.posting.data.request.CreatePostingRequest
 import multimodule.hexagonal.domain.posting.data.request.GetAllPostingRequest
+import multimodule.hexagonal.domain.posting.data.request.UpdatePostingRequest
 import multimodule.hexagonal.domain.posting.data.response.PostingListResponse
 import multimodule.hexagonal.domain.posting.data.response.PostingResponse
-import multimodule.hexagonal.domain.posting.usecase.CreatePostingUseCase
-import multimodule.hexagonal.domain.posting.usecase.DeletePostingUseCase
-import multimodule.hexagonal.domain.posting.usecase.GetAllPostingUseCase
-import multimodule.hexagonal.domain.posting.usecase.GetOnePostingUseCase
+import multimodule.hexagonal.domain.posting.usecase.*
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -20,7 +18,8 @@ class PostingWebAdapter(
     private val createPostingUseCase: CreatePostingUseCase,
     private val deletePostingUseCase: DeletePostingUseCase,
     private val getAllPostingUseCase: GetAllPostingUseCase,
-    private val getOnePostingUseCase: GetOnePostingUseCase
+    private val getOnePostingUseCase: GetOnePostingUseCase,
+    private val updatePostingUseCase: UpdatePostingUseCase
 ) {
     @PostMapping
     fun createPosting(@RequestBody postingRequest: CreatePostingRequest): ResponseEntity<Void> =
@@ -41,5 +40,13 @@ class PostingWebAdapter(
     fun getOnePosting(@PathVariable id: Long): ResponseEntity<PostingResponse> =
         getOnePostingUseCase.execute(id)
             .run { ResponseEntity.ok(this.toResponse()) }
+
+    @PatchMapping("/{id}")
+    fun updatePosting(
+        @PathVariable id: Long,
+        @RequestBody request: UpdatePostingRequest
+    ): ResponseEntity<Void> =
+        updatePostingUseCase.execute(id, request.toData())
+            .run { ResponseEntity.ok().build() }
 
 }
