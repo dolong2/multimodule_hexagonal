@@ -16,6 +16,10 @@ class MemberPersistenceAdapter(
         memberRepository.save(member.toEntity())
             .toDomain()
 
+    override fun delete(member: Member) {
+        memberRepository.delete(member.toEntity())
+    }
+
     override fun findByMemberId(id: String): Member? =
         memberRepository
             .findByIdOrNull(id)

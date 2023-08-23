@@ -4,4 +4,5 @@ import multimodule.hexagonal.domain.member.model.Member
 
 interface CommandMemberPort {
     fun save(member: Member): Member
+    fun delete(member: Member)
 }
