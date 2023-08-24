@@ -21,6 +21,11 @@ class RefreshTokenPersistenceAdapter(
         refreshTokenRepository.deleteById(refreshToken)
     }
 
+    override fun deleteRefreshTokenByUserId(userId: String) {
+        refreshTokenRepository.findByUserId(userId)
+            .forEach { refreshTokenRepository.deleteById(it.token) }
+    }
+
     override fun findByToken(token: String): RefreshToken? =
         refreshTokenRepository.findByIdOrNull(token)
             ?.toDomain()
