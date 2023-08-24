@@ -1,5 +1,7 @@
 package multimodule.hexagonal.domain.posting
 
+import multimodule.hexagonal.domain.member.adapter.toEntity
+import multimodule.hexagonal.domain.member.model.Member
 import multimodule.hexagonal.domain.posting.adapter.toDomain
 import multimodule.hexagonal.domain.posting.adapter.toEntity
 import multimodule.hexagonal.domain.posting.dao.PostingPageDao
@@ -20,6 +22,10 @@ class PostingPersistenceAdapter(
 
     override fun delete(posting: Posting) {
         postingRepository.delete(posting.toEntity())
+    }
+
+    override fun deleteByWriter(member: Member) {
+        postingRepository.deleteByWriter(member.toEntity())
     }
 
     override fun findByPostingId(id: Long): Posting? =
