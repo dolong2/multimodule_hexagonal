@@ -52,6 +52,9 @@ class SecurityConfig(
                 .requestMatchers(HttpMethod.GET, "/postings/{id}").permitAll()
                 .requestMatchers(HttpMethod.PATCH, "/postings/{id}").authenticated()
 
+                //members
+                .requestMatchers(HttpMethod.DELETE, "/members").authenticated()
+
                 //when url not set
                 .anyRequest().denyAll()
             }
