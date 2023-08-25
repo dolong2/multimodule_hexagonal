@@ -35,6 +35,10 @@ class PostingPersistenceAdapter(
     override fun existsByPostingId(id: Long): Boolean =
         postingRepository.existsById(id)
 
+    override fun findByMember(member: Member): List<Posting> =
+        postingRepository.findByWriter(member.toEntity())
+            .map { it.toDomain() }
+
     override fun findAll(page: Int, size: Int): PostingPageDao {
         val pageRequest = PageRequest.of(page, size)
         val entityPage = postingRepository.findAll(pageRequest)

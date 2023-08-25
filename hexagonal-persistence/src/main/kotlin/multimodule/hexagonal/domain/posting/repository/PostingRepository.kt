@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository
 @Repository
 interface PostingRepository : JpaRepository<PostingJpaEntity, Long> {
     fun deleteByWriter(member: MemberJpaEntity)
+    fun findByWriter(member: MemberJpaEntity): List<PostingJpaEntity>
 }
