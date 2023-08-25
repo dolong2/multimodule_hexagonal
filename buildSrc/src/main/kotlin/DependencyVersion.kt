@@ -3,6 +3,7 @@ object DependencyVersion {
     const val SPRING_TRANSACTION = "6.0.6"
 
     //servlet
+    const val SERVLET_VERSION = "4.0.1"
     const val TOMCAT_VERSION = "10.1.8"
 
     //jackson

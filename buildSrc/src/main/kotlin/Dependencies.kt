@@ -3,12 +3,16 @@ object Dependencies {
     const val KOTLIN_REFLET = "org.jetbrains.kotlin:kotlin-reflect"
     const val KOTLIN_JDK = "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 
+    //servlet
+    const val JAVA_SERVLET = "javax.servlet:javax.servlet-api:${DependencyVersion.SERVLET_VERSION}"
+
+
     //tomcat
     const val TOMCAT = "org.apache.tomcat.embed:tomcat-embed-core:${DependencyVersion.TOMCAT_VERSION}"
 
     // spring
-    const val SPRING_JPA = "org.springframework.boot:spring-boot-starter-data-jpa"
-    const val SPRING_REDIS = "org.springframework.boot:spring-boot-starter-data-redis"
+    const val SPRING_JPA = "org.springframework.boot:spring-boot-starter-data-jpa:${PluginVersion.SPRING_BOOT_VERSION}"
+    const val SPRING_REDIS = "org.springframework.boot:spring-boot-starter-data-redis:${PluginVersion.SPRING_BOOT_VERSION}"
     const val SPRING_SECURITY = "org.springframework.boot:spring-boot-starter-security"
     const val SPRING_WEB = "org.springframework.boot:spring-boot-starter-web"
     const val SPRING_VALIDATION = "org.springframework.boot:spring-boot-starter-validation"

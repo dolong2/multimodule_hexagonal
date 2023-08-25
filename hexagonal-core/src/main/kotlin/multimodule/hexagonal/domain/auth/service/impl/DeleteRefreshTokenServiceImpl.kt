@@ -1,8 +1,8 @@
 package multimodule.hexagonal.domain.auth.service.impl
 
+import multimodule.hexagonal.common.annotation.Service
 import multimodule.hexagonal.domain.auth.service.DeleteRefreshTokenService
 import multimodule.hexagonal.domain.auth.spi.CommandRefreshTokenPort
-import org.springframework.stereotype.Service
 
 @Service
 class DeleteRefreshTokenServiceImpl(

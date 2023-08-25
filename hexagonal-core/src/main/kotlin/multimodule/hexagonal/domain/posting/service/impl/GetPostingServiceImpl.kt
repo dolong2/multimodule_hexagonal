@@ -1,11 +1,11 @@
 package multimodule.hexagonal.domain.posting.service.impl
 
+import multimodule.hexagonal.common.annotation.Service
 import multimodule.hexagonal.domain.member.model.Member
 import multimodule.hexagonal.domain.posting.dto.response.PostingResData
 import multimodule.hexagonal.domain.posting.dto.util.toResponse
 import multimodule.hexagonal.domain.posting.service.GetPostingService
 import multimodule.hexagonal.domain.posting.spi.QueryPostingPort
-import org.springframework.stereotype.Service
 
 @Service
 class GetPostingServiceImpl(

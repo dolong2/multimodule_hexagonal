@@ -6,4 +6,5 @@ object PluginVersion {
     const val JPA_PLUGIN_VERSION = "1.7.22"
     const val JVM_TARGET_VERSION = "17"
     const val ALLOPEN_VERSION = "1.7.22"
+    const val KAPT_VERSION = "1.7.10"
 }
