@@ -55,6 +55,7 @@ class SecurityConfig(
                 //members
                 .requestMatchers(HttpMethod.DELETE, "/members").authenticated()
                 .requestMatchers(HttpMethod.GET, "/members").authenticated()
+                .requestMatchers(HttpMethod.GET, "/members/{id}").permitAll()
 
                 //when url not set
                 .anyRequest().denyAll()
