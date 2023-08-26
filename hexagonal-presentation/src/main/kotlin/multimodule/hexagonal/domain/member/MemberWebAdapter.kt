@@ -7,6 +7,7 @@ import multimodule.hexagonal.domain.member.usecase.GetMemberUseCase
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -24,5 +25,10 @@ class MemberWebAdapter(
     @GetMapping
     fun getCurrentMember(): ResponseEntity<MemberResponse> =
         getMemberUseCase.execute()
+            .let { ResponseEntity.ok(it.toResponse()) }
+
+    @GetMapping("/{id}")
+    fun getMemberById(@PathVariable id: String): ResponseEntity<MemberResponse> =
+        getMemberUseCase.execute(id)
             .let { ResponseEntity.ok(it.toResponse()) }
 }
