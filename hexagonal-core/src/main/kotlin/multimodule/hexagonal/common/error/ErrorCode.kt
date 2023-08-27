@@ -8,6 +8,7 @@ enum class ErrorCode(
     INVALID_ROLE("유효하지않은 권한", 400),
     SAME_USER_EXIST("같은 유저가 존재함", 400),
     PASSWORD_NOT_CORRECT("패스워드가 올바르지 않음", 400),
+    ALREADY_LIKE_POSTING("이미 좋아요한 게시물", 400),
 
     UNAUTHORIZED("권한이 없음", 401),
     EXPIRED_TOKEN("만료된 토큰임", 401),
