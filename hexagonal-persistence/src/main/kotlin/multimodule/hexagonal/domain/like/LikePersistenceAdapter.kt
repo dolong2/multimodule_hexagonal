@@ -19,6 +19,10 @@ class LikePersistenceAdapter(
         likeRepository.save(like.toEntity())
     }
 
+    override fun delete(like: Like) {
+        likeRepository.delete(like.toEntity())
+    }
+
     override fun countByPosting(posting: Posting): Long =
         likeRepository.countByPosting(posting.toEntity())
 

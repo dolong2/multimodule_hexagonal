@@ -9,12 +9,14 @@ import multimodule.hexagonal.domain.posting.adapter.toEntity
 
 fun Like.toEntity(): LikeJpaEntity =
     LikeJpaEntity(
+        id = this.id,
         participant = this.participant.toEntity(),
         posting = this.posting.toEntity()
     )
 
 fun LikeJpaEntity.toDomain(): Like =
     Like(
+        id = this.id,
         participant = this.participant.toDomain(),
         posting = this.posting.toDomain()
     )

@@ -4,4 +4,5 @@ import multimodule.hexagonal.domain.like.model.Like
 
 interface CommandLikePort {
     fun save(like: Like)
+    fun delete(like: Like)
 }
