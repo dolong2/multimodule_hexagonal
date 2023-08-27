@@ -52,6 +52,7 @@ class SecurityConfig(
                 .requestMatchers(HttpMethod.GET, "/postings/{id}").permitAll()
                 .requestMatchers(HttpMethod.PATCH, "/postings/{id}").authenticated()
                 .requestMatchers(HttpMethod.PATCH, "/postings/{id}/likes").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/postings/{id}/likes").authenticated()
 
                 //members
                 .requestMatchers(HttpMethod.DELETE, "/members").authenticated()
