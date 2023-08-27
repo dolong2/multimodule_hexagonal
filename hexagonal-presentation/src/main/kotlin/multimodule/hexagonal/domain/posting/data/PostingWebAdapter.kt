@@ -20,7 +20,8 @@ class PostingWebAdapter(
     private val getAllPostingUseCase: GetAllPostingUseCase,
     private val getOnePostingUseCase: GetOnePostingUseCase,
     private val updatePostingUseCase: UpdatePostingUseCase,
-    private val createPostingLikeUseCase: CreatePostingLikeUseCase
+    private val createPostingLikeUseCase: CreatePostingLikeUseCase,
+    private val deletePostingLikeUseCase: DeletePostingLikeUseCase
 ) {
     @PostMapping
     fun createPosting(@RequestBody postingRequest: CreatePostingRequest): ResponseEntity<Void> =
@@ -55,4 +56,8 @@ class PostingWebAdapter(
         createPostingLikeUseCase.execute(id)
             .run { ResponseEntity.ok().build() }
 
+    @DeleteMapping("/{id}/likes")
+    fun deletePostingLike(@PathVariable id: Long): ResponseEntity<Void> =
+        deletePostingLikeUseCase.execute(id)
+            .run { ResponseEntity.ok().build() }
 }
