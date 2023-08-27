@@ -10,7 +10,6 @@ class PostingJpaEntity(
     val id: Long = 0,
     val title: String,
     val content: String,
-    val likes: Long,
     @ManyToOne
     @JoinColumn(name = "writer_id", nullable = false)
     val writer: MemberJpaEntity

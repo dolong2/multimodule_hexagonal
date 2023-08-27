@@ -9,6 +9,5 @@ fun CreatePostingReqData.toPosting(member: Member): Posting =
         id = 0,
         title = this.title,
         content = this.content,
-        likes = 0,
         writer = member
     )

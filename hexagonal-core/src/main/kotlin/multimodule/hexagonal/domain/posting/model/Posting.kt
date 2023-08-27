@@ -6,6 +6,5 @@ data class Posting(
     val id: Long,
     val title: String,
     val content: String,
-    val likes: Long,
     val writer: Member
 )

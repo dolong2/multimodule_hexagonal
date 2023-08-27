@@ -10,7 +10,6 @@ fun Posting.toEntity(): PostingJpaEntity =
         id = this.id,
         title = this.title,
         content = this.content,
-        likes = this.likes,
         writer = this.writer.toEntity()
     )
 
@@ -19,6 +18,5 @@ fun PostingJpaEntity.toDomain(): Posting =
         id = this.id,
         title = this.title,
         content = this.content,
-        likes = this.likes,
         writer = this.writer.toDomain()
     )
