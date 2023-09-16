@@ -1,5 +1,6 @@
 package multimodule.hexagonal.domain.posting.usecase
 
+import multimodule.hexagonal.common.annotation.ReadOnlyUseCase
 import multimodule.hexagonal.common.annotation.UseCase
 import multimodule.hexagonal.common.dto.response.PageInfoResData
 import multimodule.hexagonal.domain.like.service.GetLikeService
@@ -7,7 +8,7 @@ import multimodule.hexagonal.domain.posting.dto.response.PostingListResData
 import multimodule.hexagonal.domain.posting.dto.util.toResponse
 import multimodule.hexagonal.domain.posting.spi.QueryPostingPort
 
-@UseCase
+@ReadOnlyUseCase
 class GetAllPostingUseCase(
     private val queryPostingPort: QueryPostingPort,
     private val getLikeService: GetLikeService
